@@ -36,6 +36,7 @@ int main(int argc, char **argv) {
         return 1;
       }
 
+
       auto p1 = image.data.get();
       auto p2 = image2.data.get();
       if (std::memcmp(p1, p2, image.size) == 0) {
