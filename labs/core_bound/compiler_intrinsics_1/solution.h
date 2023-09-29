@@ -11,3 +11,9 @@ void init(InputVector &data);
 void zero(OutputVector &data, std::size_t size);
 void imageSmoothing(const InputVector &inA, uint8_t radius,
                     OutputVector &outResult);
+void mySolution(const InputVector &inA, uint8_t radius,
+OutputVector &outResult);
+void mySolutionA(const InputVector &inA, uint8_t radius,
+OutputVector &outResult);
+void facit(const InputVector &inA, uint8_t radius,
+OutputVector &outResult);

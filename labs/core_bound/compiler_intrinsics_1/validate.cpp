@@ -6,6 +6,8 @@
 #include <limits>
 #include <memory>
 
+#define SOLUTION 3 // Define SOLUTION as a preprocessor constant
+
 static void reference_solution(const InputVector &input, uint8_t radius,
                                OutputVector &output) {
   int pos = 0;
@@ -47,6 +49,7 @@ static void reference_solution(const InputVector &input, uint8_t radius,
   }
 }
 
+
 int main() {
   InputVector inA;
   init(inA);
@@ -56,7 +59,23 @@ int main() {
   zero(received, (int)inA.size());
 
   reference_solution(inA, radius, expected);
-  imageSmoothing(inA, radius, received);
+  #if SOLUTION == 0
+    // Baseline.
+    imageSmoothing(inA, radius, received);
+  #elif SOLUTION == 1
+    // My solution.
+    mySolution(inA, radius, received);
+  #elif SOLUTION == 2
+    // My solution A.
+    mySolutionA(inA, radius, received);
+  #elif SOLUTION == 3
+    // Facit.
+    facit(inA, radius, received);
+  #else
+    #  pragma error("Unknown solution. Valid values are 0 through 2.")
+  #endif
+
+  
 
   if (expected.size() != received.size()) {
     std::cerr << "Result has invalid size. Expected size: " << expected.size()
