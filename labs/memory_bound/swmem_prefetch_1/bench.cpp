@@ -12,7 +12,9 @@ static void bench1(benchmark::State &state) {
 
   // Run the benchmark
   for (auto _ : state) {
-    auto output = solution(hash_map.get(), lookups);
+    // auto output = solution(hash_map.get(), lookups);
+    auto output = mySolution(hash_map.get(), lookups);
+    // auto output = facit(hash_map.get(), lookups);
     benchmark::DoNotOptimize(output);
   }
 }

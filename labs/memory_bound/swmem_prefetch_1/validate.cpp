@@ -32,7 +32,9 @@ int main() {
   init(hash_map.get(), lookups);
 
   auto original_result = original_solution(hash_map.get(), lookups);
-  auto result = solution(hash_map.get(), lookups);
+  // auto result = solution(hash_map.get(), lookups);
+  auto result = mySolution(hash_map.get(), lookups);
+  // auto result = facit(hash_map.get(), lookups);
 
   if (original_result != result) {
     std::cerr << "Validation Failed. Original result = " << original_result

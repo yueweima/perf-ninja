@@ -1,5 +1,6 @@
 #include <vector>
 #include <limits>
+#include <stdio.h>
 
 static constexpr std::size_t HASH_MAP_SIZE = 32 * 1024 * 1024 - 5;
 static constexpr std::size_t NUMBER_OF_LOOKUPS = 1024 * 1024;
@@ -24,7 +25,14 @@ public:
         int bucket = val % N_Buckets;
         return m_vector[bucket] != UNUSED;
     }
+
+    void prefetchForVal(int val) const {
+        int bucket = val % N_Buckets;
+        __builtin_prefetch(&m_vector[bucket]);
+    }
 };
 
 void init(hash_map_t* hash_map, std::vector<int>& lookups);
 int solution(const hash_map_t* hash_map, const std::vector<int>& lookups);
+int mySolution(const hash_map_t* hash_map, const std::vector<int>& lookups);
+int facit(const hash_map_t* hash_map, const std::vector<int>& lookups);
