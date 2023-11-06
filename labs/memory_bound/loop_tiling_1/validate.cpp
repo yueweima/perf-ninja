@@ -37,7 +37,9 @@ int main() {
   initMatrix(in);
 
   original_solution(in, out_golden);
-  solution(in, out);
+  // solution(in, out);
+
+  mySolution(in, out);
 
   if (!matrices_equal(out, out_golden)) {
     std::cerr << "Validation Failed\n";

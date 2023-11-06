@@ -15,7 +15,9 @@ static void bench1(benchmark::State &state) {
 
   // Run the benchmark
   for (auto _ : state) {
+    // auto output = mySolution(in, out);
     auto output = solution(in, out);
+    // auto output = facit(in, out);
     benchmark::DoNotOptimize(output);
   }
 }
