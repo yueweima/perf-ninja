@@ -40,8 +40,10 @@ saveppm(const char *fname, int w, int h, unsigned char *img)
 {
     FILE *fp;
 
-    fp = fopen(fname, "wb");
-    assert(fp);
+    // fp = fopen(fname, "wb");
+    // assert(fp);
+
+    fopen_s(&fp, fname, "wb");
 
     fprintf(fp, "P6\n");
     fprintf(fp, "%d %d\n", w, h);

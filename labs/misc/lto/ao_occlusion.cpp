@@ -14,6 +14,7 @@ double mydrand48() {
   return distribution(generator);
 }
 
+// 环境遮挡
 void ambient_occlusion(vec *col, const Isect *isect)
 {
     int    i, j;
